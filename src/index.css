@@ -1,13 +1,83 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;800&display=swap');
+
+*, * ::before, * ::after {
+    box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+    margin: 0 auto;
+    padding: 0;
+    height: 100vh;
+    background: linear-gradient(to left, #71ff34, #ff56, #027940);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+}
+
+.calculator {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: minmax(7em, auto) repeat(5, 6em);
+    margin: 2em;
+    background: linear-gradient(to left, #71ff34, #ff56, #027940);
+}
+
+.calculator .spanButton {
+    grid-column: span 2;
+    background-color: #011714;
+}
+
+.calculator > button {
+    font-size: 2em;
+    text-align: center;
+    align-content: center;
+    background: #274d3a;
+    color: #f4f8fa;
+    cursor: pointer;
+    outline: none;
+    border: 1px solid #71884e;
+}
+
+.calculator button:hover, .calculator button:focus {
+    background-color: rgba(22, 31, 24, 0.9);
+}
+
+.calculator button:active {
+    transform: translateY(.1em);
+    -webkit-transform: translateY(.1em);
+    -moz-transform: translateY(.1em);
+    -ms-transform: translateY(.1em);
+    -o-transform: translateY(.1em);
+}
+
+.outputField {
+    grid-column: 1 / -1;
+    background-color: rgb(1, 45, 24);
+    color: #f4f8fa;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-around;
+    padding: .75em;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.previousOutput {
+    color: rgb(255, 255, 194);
+    font-size: 2em;
+}
+
+.currentOutput {
+    color: rgb(243, 241, 234);
+    font-size: 2.5em;
+}
+
+@media screen and (max-width: 468px) {
+    .calculator {
+        width: 100vw;
+        height: 100vh;
+        margin: auto;
+    }
 }
